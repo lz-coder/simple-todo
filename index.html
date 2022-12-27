@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo App</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <main class="app">
+        <div class="toolbar default-padding">
+            <input id="id_todo_input" type="text" class="todo-input" placeholder="Add new task">
+            <div class="buttons-panel">
+                <button id="all_button" class="button" onclick="buttonActions('showAll')">All</button>
+                <button id="pending_button" class="button" onclick="buttonActions('showPending')">Pending</button>
+                <button id="completed_button" class="button" onclick="buttonActions('showCompleted')">Completed</button>
+                <button id="clearall_button" class="button" onclick="buttonActions('clearAll')">Clear All</button>
+            </div>
+        </div> 
+        <ol id="id_tasks_section" class="tasks-section default-padding"></ol>
+        <div class="tasks-infos">
+            <span id="id_all_info"></span>
+            <span id="id_completed_info"></span>
+            <span id="id_pending_info"></span>
+        </div>
+    </main> 
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+* {padding: 0; margin:0; box-sizing: border-box;}
+html, body {width: 100%;}
+body {font-family: Roboto, serif;}
+
+.default-padding {padding: 1em;}
+
+.flex {display: flex;}
+.dir-row-reverse {flex-direction: row-reverse;}
+
+.app {
+    width: 30em;
+    max-width: 50em;
+    margin: 5em auto;
+    background: rgba(0, 51, 121, 0.5);
+    height: 30em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 2px 1px #000;
+}
+
+.todo-input {
+    width: 100%;
+    height: 2em;
+    font-size: 1.1em;
+    padding-left: 1em;
+    border-radius: 0.5em;
+    border: none;
+}
+
+.buttons-panel {margin-top: 0.5em;}
+
+.button {
+    padding: 0.2em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+.button.active:after {
+    content: " ";
+    display: block;
+    width: 100%;
+    position: absolute;
+    height: 0.2em;
+    background: #000;
+    bottom: 0;
+    left: 0;
+}
+
+#clearall_button {
+    float: right;
+    background: #dd3838;
+    border-radius: 0.5em;
+    color: #fff;
+}
+#clearall_button:hover {
+    filter: brightness(150%);
+}
+
+.tasks-section {
+    border-top: 1.5px solid #061d3d;
+    height: 22em;
+    border-bottom: 1.5px solid #061d3d;
+    margin: 0 0 1em;
+    list-style-type: none;
+    overflow: scroll;
+}
+
+.todo-card {
+    height: 3em;
+    margin: 0.1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-title {
+    font-size: 1.1em;
+    width: 90%;
+    margin: 0 0.5em;
+    border-radius: 0.3em;
+    border: none;
+}
+
+.todo-title:disabled {
+    border: none;
+    color: #000;
+    background: none;
+}
+.todo-title:not(:disabled) {
+    padding-left: 0.5em;
+    text-decoration: none !important;
+}
+
+.todo-card.completed .todo-title {text-decoration: line-through;}
+
+.todo-menu {
+    font-size: 1.5em !important;
+    cursor: pointer;
+    gap: 0.2em;
+}
+
+.tasks-section .todo-card:not( .todo-card:last-child) {
+    border-bottom: 1.5px solid #061d3d;
+}
+
+.todo-checkbox {
+    accent-color: #0cbd00;
+    cursor: pointer;
+}
+
+.tasks-infos {
+    position: relative;
+    top: -0.8em;
+    width: 20em;
+    margin: 0 auto;
+    text-align: center;
+}
+.tasks-infos > :nth-child(2) {
+    margin: 0 2em;
+}
