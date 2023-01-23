@@ -1,6 +1,10 @@
 * {padding: 0; margin:0; box-sizing: border-box;}
 html, body {width: 100%;}
-body {font-family: Roboto, serif;}
+body {
+    font-family: Roboto, serif;
+    display: flex;
+    height: 100vh;
+}
 
 .default-padding {padding: 1em;}
 
@@ -9,9 +13,8 @@ body {font-family: Roboto, serif;}
 
 .app {
     width: 30em;
-    max-width: 50em;
-    margin: 5em auto;
-    background: rgba(0, 51, 121, 0.5);
+    margin: auto;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     height: 30em;
     border-radius: 0.5em;
     box-shadow: 0 0 2px 1px #000;
@@ -24,6 +27,12 @@ body {font-family: Roboto, serif;}
     padding-left: 1em;
     border-radius: 0.5em;
     border: none;
+    transition: transform 150ms;
+}
+.todo-input:focus {
+    transform: scale(1.05);
+    outline: none;
+    box-shadow: 0 0 2px 1px #000;
 }
 
 .buttons-panel {margin-top: 0.5em;}
@@ -40,8 +49,9 @@ body {font-family: Roboto, serif;}
     display: block;
     width: 100%;
     position: absolute;
-    height: 0.2em;
-    background: #000;
+    height: 0.4em;
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    border-radius: 0.5em;
     bottom: 0;
     left: 0;
 }
@@ -51,9 +61,13 @@ body {font-family: Roboto, serif;}
     background: #dd3838;
     border-radius: 0.5em;
     color: #fff;
+    transition: scale 50ms;
+    padding: 0.3em;
 }
 #clearall_button:hover {
     filter: brightness(150%);
+    transform: scale(1.1);
+    box-shadow: 0 0 2px 1px #000;
 }
 
 .tasks-section {
@@ -67,10 +81,15 @@ body {font-family: Roboto, serif;}
 
 .todo-card {
     height: 3em;
-    margin: 0.1em 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 0 2px 0 #000;
+    border-radius: 0.5em;
+    padding: 0 0.2em;
+}
+.todo-card:not(:last-child) {
+    margin-bottom: 0.4em;
 }
 
 .todo-title {
