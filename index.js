@@ -75,17 +75,31 @@ function createTodo(title, completed, save, index) {
             menuItemDelete.className = "menu-item fa fa-trash";
             todoMenu.appendChild(menuItemEdit);
             todoMenu.appendChild(menuItemDelete);
+            let old_title;
+
+            function saveEdit() {
+                if (todoTitle.value != "") {
+                    todoTitle.disabled = true;
+                    if (todoTitle.value != old_title) {
+                        myTasks[todoCardIndex].title = todoTitle.value;
+                        setMyTasks();
+                    }
+                } else {
+                    todoTitle.style.border = "2px solid red";
+                }
+            }
 
             menuItemEdit.addEventListener('click', () => {
                 if (todoTitle.disabled == true) {
                     todoTitle.disabled = false;
-                    console.log("false");
-                } else {
-                    if (todoTitle.value != "") {
-                        todoTitle.disabled = true;
-                    } else {
-                        todoTitle.style.border = "2px solid red";
+                    old_title = todoTitle.value; 
+                    todoTitle.onkeydown = (e) => {
+                        if (e.key === "Enter") {
+                            saveEdit();
+                        }
                     }
+                } else {
+                    saveEdit();
                 }
             });
             menuItemDelete.addEventListener('click', () => {
@@ -100,10 +114,14 @@ function createTodo(title, completed, save, index) {
                 setTasksInfos();
                 setMyTasks();
             });
-
         } else {
             const menuItems = todoMenu.querySelectorAll(".menu-item");
             menuItems.forEach(item => todoMenu.removeChild(item));
+            if (todoTitle.value == "") {
+                todoTitle.value = myTasks[todoCardIndex].title;
+                todoTitle.disabled = true;
+                todoTitle.style.border = "none";
+            }
         }
     }
 
