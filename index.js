@@ -1,9 +1,12 @@
 const todo_input = document.querySelector("#id_todo_input");
+todo_input.maxLength = 50;
 const tasks_section = document.querySelector("#id_tasks_section");
 
 var taskCounter = 0;
 var completedTaskCounter = 0;
 let myTasks, tasksInfos;
+
+var currentAction;
 
 const getTasksInfos = () => {
     tasksInfos = JSON.parse(localStorage.getItem('tasksInfos'));
@@ -144,13 +147,13 @@ function createTodo(title, completed, save, index) {
             completedTaskCounter += 1;
             tasksInfos.completed += 1;
             myTasks[todoCardIndex].completed = true;
-
         } else {
             todoCard.classList.remove("completed");
             completedTaskCounter -= 1;
             tasksInfos.completed -= 1;
             myTasks[todoCardIndex].completed = false;
         }
+        buttonActions(currentAction);
         updateTasksInfos();
         setTasksInfos();
         setMyTasks();
@@ -210,12 +213,17 @@ for (let i = 0; i < 3; i++) {
     });
 }
 
+let setButtonAction = (action) => {
+    currentAction = action;
+}
+
 function buttonActions(action) {
     tasks_items = document.querySelectorAll(".todo-card");
     for (let i = 0; i < tasks_items.length; i++) {
         switch (action) {
             case "showAll":
                 tasks_items[i].style.display = "flex";
+                setButtonAction(action);
                 break;
             case "showPending":
                 if (!tasks_items[i].classList.contains("completed")) {
@@ -223,6 +231,7 @@ function buttonActions(action) {
                 } else {
                     tasks_items[i].style.display = "none";
                 }
+                setButtonAction(action);
                 break;
             case "showCompleted":
                 if (tasks_items[i].classList.contains("completed")) {
@@ -230,6 +239,7 @@ function buttonActions(action) {
                 } else {
                     tasks_items[i].style.display = "none";
                 }
+                setButtonAction(action);
                 break;
             case "clearAll":
                 tasks_section.removeChild(tasks_items[i]);
