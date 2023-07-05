@@ -148,7 +148,19 @@ body {
     width: 20em;
     margin: 0 auto;
     text-align: center;
+    white-space: nowrap;
 }
 .tasks-infos > :nth-child(2) {
     margin: 0 2em;
+}
+
+@media screen and (max-width: 980px) {
+    .app {
+        min-width: 100vw;
+    }
+}
+@media screen and (orientation: portrait) {
+    .app {
+        min-height: 100vh;
+    }
 }
