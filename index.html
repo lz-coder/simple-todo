@@ -14,11 +14,18 @@
         <div class="toolbar default-padding">
             <input id="id_todo_input" type="text" class="todo-input" placeholder="Add new task">
             <div class="buttons-panel">
-                <button id="all_button" class="button" onclick="buttonActions('showAll')">All</button>
-                <button id="pending_button" class="button" onclick="buttonActions('showPending')">Pending</button>
-                <button id="completed_button" class="button" onclick="buttonActions('showCompleted')">Completed</button>
-                <button id="clearall_button" class="button" onclick="buttonActions('clearAll')"><i
-                        class="fa fa-trash"></i>Clear All</button>
+                <button id="all_button" class="button" onclick="buttonActions('showAll')">All
+                    <i id="all_button_counter"></i>
+                </button>
+                <button id="pending_button" class="button" onclick="buttonActions('showPending')">Pending
+                    <i id="pending_button_counter"></i>
+                </button>
+                <button id="completed_button" class="button" onclick="buttonActions('showCompleted')">Completed
+                    <i id="completed_button_counter"></i>
+                </button>
+                <button id="clearall_button" class="button" onclick="buttonActions('clearAll')">
+                    <i class="fa fa-trash"></i>Clear All
+                </button>
             </div>
         </div>
         <ol id="id_tasks_section" class="tasks-section default-padding"></ol>

@@ -254,13 +254,13 @@ function buttonActions(action) {
     }
 }
 
-const all_tasks_info = document.getElementById("id_all_info");
-const completed_tasks_info = document.getElementById("id_completed_info");
-const pending_tasks_info = document.getElementById("id_pending_info");
+const all_tasks_info = document.getElementById("all_button_counter");
+const completed_tasks_info = document.getElementById("completed_button_counter");
+const pending_tasks_info = document.getElementById("pending_button_counter");
 
 const updateTasksInfos = () => {
-    all_tasks_info.innerText = `Tasks: ${tasksInfos.all}`;
-    completed_tasks_info.innerText = `Completed: ${tasksInfos.completed}`;
-    pending_tasks_info.innerText = `Pending: ${tasksInfos.all - tasksInfos.completed}`;
+    all_tasks_info.innerText = tasksInfos.all;
+    completed_tasks_info.innerText = tasksInfos.completed;
+    pending_tasks_info.innerText = tasksInfos.all - tasksInfos.completed;
 }
 updateTasksInfos();
