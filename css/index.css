@@ -47,6 +47,10 @@ body {
     border: none;
     cursor: pointer;
     position: relative;
+    font-size: 1em;
+}
+.button:nth-child(even) {
+    margin: 0 0.5em;
 }
 
 @keyframes activeButton {
@@ -80,6 +84,13 @@ body {
     filter: brightness(150%);
     transform: scale(1.1);
     box-shadow: 0 0 2px 1px #000;
+}
+
+.button-counter {
+    font-size: 1em;
+    font-weight: bold;
+    font-style: normal;
+    margin-right: 0.3em;
 }
 
 .tasks-section {
